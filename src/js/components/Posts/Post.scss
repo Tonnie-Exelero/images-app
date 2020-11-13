@@ -1,0 +1,53 @@
+/* Breakpoints */
+$desktop: 600px;
+
+.c-posts--post-content {
+    margin-top: 10%;
+    order: 2;
+
+    .c-posts--post {
+        .c-posts--title {
+            font-weight: 600;
+        }
+
+        .c-posts--description {
+            font-size: .8em;
+            font-weight: 300;
+            opacity: .6;
+        }
+    }
+
+    .c-posts--meta {
+        margin-top: 10%;
+
+        .c-posts--likes {
+            display: flex;
+            font-size: .8em;
+
+            img {
+                margin-right: .4em;
+            }
+
+            .c-posts--likes-count {
+                margin-top: auto;
+                opacity: .7;
+            }
+        }
+
+        .c-posts--date {
+            margin-top: 2em;
+            font-size: .6em;
+            opacity: .6;
+        }
+    }
+}
+
+@media (min-width: $desktop) {
+    .c-posts--post-content {
+        margin-top: 70%;
+
+        .c-posts--meta {
+            margin-top: 70%;
+        }
+    }
+}
