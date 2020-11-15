@@ -1,8 +1,7 @@
 {
   "name": "images_app",
   "version": "1.0.0",
-  "description": "Test Images app",
-  "main": "index.js",
+  "description": "Images App test",
   "scripts": {
     "start": "webpack serve --mode development --env development",
     "build": "webpack --mode production",

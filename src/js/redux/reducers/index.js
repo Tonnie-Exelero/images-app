@@ -1,3 +1,4 @@
+// Initial app state. 
 const initialState = {
     posts: [],
     user: {},

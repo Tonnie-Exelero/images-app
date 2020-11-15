@@ -4,12 +4,14 @@ import { getPostsData } from "../../redux/actions"
 import "./Post.scss"
 
 class Post extends Component {
+  // Make API call.
   componentDidMount() {
     this.props.getPostsData(
       "https://api.slstice.com/mock/posts?api_key=ZSTYF0GBSSF0l3Ou6DTPE"
     )
   }
 
+  // Render the component.
   render() {
     return (
       <div className="c-posts--post-content">
@@ -38,6 +40,7 @@ class Post extends Component {
   }
 }
 
+// Function to connect to the state.
 function mapStateToProps(state) {
   return {
     posts: state.posts.slice(0, 10),

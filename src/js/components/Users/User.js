@@ -4,6 +4,7 @@ import { getUsersData } from "../../redux/actions"
 import "./User.scss"
 
 class User extends Component {
+  // Make API call.
   componentDidMount() {
     this.props.getUsersData(
       "https://api.slstice.com/mock/users/" +
@@ -12,6 +13,7 @@ class User extends Component {
     )
   }
 
+  // Render the component.
   render() {
     return (
       <div className="c-users--user">
@@ -31,6 +33,7 @@ class User extends Component {
   }
 }
 
+// Function to connect to the state.
 function mapStateToProps(state) {
   return {
     posts: state.posts.slice(0, 10),
