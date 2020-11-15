@@ -1,12 +1,12 @@
 import React, { Component, Fragment } from "react"
 import { connect } from "react-redux"
-import { getPostsData } from "../../actions/index"
+import { getPostsData } from "../../redux/actions"
 import "./Post.scss"
 
 class Post extends Component {
   componentDidMount() {
     this.props.getPostsData(
-      "https://virtserver.swaggerhub.com/tonnieexelero/Images/1.0.0/posts"
+      "https://api.slstice.com/mock/posts?api_key=ZSTYF0GBSSF0l3Ou6DTPE"
     )
   }
 

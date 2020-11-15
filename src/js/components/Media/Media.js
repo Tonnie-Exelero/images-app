@@ -1,12 +1,12 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
-import { getMediaData } from "../../actions/index"
-import "./Image.scss"
+import { getMediaData } from "../../redux/actions"
+import "./Media.scss"
 
-class Image extends Component {
+class Media extends Component {
   componentDidMount() {
     this.props.getMediaData(
-      "https://virtserver.swaggerhub.com/tonnieexelero/Images/1.0.0/medias/" +
+      "https://api.slstice.com/mock/medias/" +
         this.props.posts.map((post) => post.mediaId)
     )
   }
@@ -23,4 +23,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps, { getMediaData })(Image)
+export default connect(mapStateToProps, { getMediaData })(Media)

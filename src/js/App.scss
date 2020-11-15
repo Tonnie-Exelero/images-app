@@ -17,7 +17,7 @@ body {
     border: solid 1px grey;
 
 
-    .c-images--image {
+    .c-media--image {
         flex-basis: 100%;
         border-right: solid 1px grey;
     }
@@ -30,7 +30,7 @@ body {
     }
 
     @media (min-width: $desktop) {
-        .c-images--image {
+        .c-media--image {
             flex-basis: 60%;
         }
 

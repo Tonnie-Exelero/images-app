@@ -1,9 +1,7 @@
 import { createStore, applyMiddleware, compose } from "redux"
-import rootReducer from "../reducers/index"
 import createSagaMiddleware from "redux-saga"
-import postsSaga from "../sagas/posts-saga"
-import usersSaga from "../sagas/users-saga"
-import mediaSaga from "../sagas/media-saga"
+import rootReducer from "../../redux/reducers"
+import rootSaga from "../../redux/sagas"
 
 const initialiseSagaMiddleware = createSagaMiddleware()
 
@@ -14,6 +12,6 @@ const store = createStore(
   storeEnhancers(applyMiddleware(initialiseSagaMiddleware))
 )
 
-initialiseSagaMiddleware.run(postsSaga, usersSaga, mediaSaga)
+initialiseSagaMiddleware.run(rootSaga)
 
 export default store

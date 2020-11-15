@@ -1,7 +1,7 @@
 import "regenerator-runtime/runtime.js"
 import { takeEvery, call, put } from "redux-saga/effects"
 
-export default function* watcherSaga() {
+export function* postsSaga() {
   yield takeEvery("POSTS_REQUESTED", workerSaga)
 }
 

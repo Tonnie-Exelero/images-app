@@ -1,13 +1,14 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
-import { getUsersData } from "../../actions/index"
+import { getUsersData } from "../../redux/actions"
 import "./User.scss"
 
 class User extends Component {
   componentDidMount() {
     this.props.getUsersData(
-      "https://virtserver.swaggerhub.com/tonnieexelero/Images/1.0.0/users/" +
-        this.props.posts.map((post) => post.user.username)
+      "https://api.slstice.com/mock/users/" +
+        this.props.posts.map((post) => post.user.username) +
+        "?api_key=ZSTYF0GBSSF0l3Ou6DTPE"
     )
   }
 
@@ -37,4 +38,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps, {getUsersData})(User)
+export default connect(mapStateToProps, { getUsersData })(User)
