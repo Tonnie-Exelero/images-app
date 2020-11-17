@@ -6,9 +6,5 @@ import { postsSaga } from "./posts-saga"
 import { usersSaga } from "./users-saga"
 
 export default function* rootSaga() {
-    yield all([
-        fork(mediaSaga),
-        fork(postsSaga),
-        fork(usersSaga)
-    ])
+  yield all([fork(mediaSaga), fork(postsSaga), fork(usersSaga)])
 }

@@ -8,7 +8,8 @@ class Media extends Component {
   componentDidMount() {
     this.props.getMediaData(
       "https://api.slstice.com/mock/medias/" +
-        this.props.posts.map((post) => post.mediaId)
+        this.props.posts.map((post) => post.mediaId) +
+        "?api_key=ZSTYF0GBSSF0l3Ou6DTPE"
     )
   }
 

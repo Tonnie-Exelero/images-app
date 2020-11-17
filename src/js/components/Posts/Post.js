@@ -31,7 +31,9 @@ class Post extends Component {
                 />
                 <div className="c-posts--likes-count">{" " + post.likes} likes</div>
               </div>
-              <div className="c-posts--date">{new Date(post.created).toDateString()}</div>
+              <div className="c-posts--date">
+                {new Date(post.created).toDateString()}
+              </div>
             </div>
           </Fragment>
         ))}

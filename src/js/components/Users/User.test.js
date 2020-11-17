@@ -36,13 +36,15 @@ describe("User", () => {
 
   it("renders the snapshot", () => {
     const component = renderer.create(<User />)
-    
+
     expect(component.toJSON()).toMatchSnapshot()
   })
 
   it("renders user details", () => {
     const wrapper = getWrapper()
 
-    expect(wrapper.find("div").first().props().on).toContain('className="c-users--user"')
+    expect(wrapper.find("div").first().props().on).toContain(
+      'className="c-users--user"'
+    )
   })
 })
