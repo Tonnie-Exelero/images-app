@@ -21,9 +21,7 @@ const initialState = {
 export default function rootReducer(state = initialState, action) {
   switch (action.type) {
     case "POSTS_LOADED": {
-      return Object.assign({}, state, {
-        posts: state.posts.concat(action.payload),
-      })
+      return { posts: [...state.posts, action.payload] }
     }
 
     case "USERS_LOADED": {

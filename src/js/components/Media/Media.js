@@ -10,17 +10,21 @@ import "./Media.scss"
  */
 class Media extends Component {
   // Make API call.
-  componentDidMount() {
-    this.props.getMediaData(
-      "https://api.slstice.com/mock/medias/" +
-        this.props.posts.map((post) => post.mediaId) +
-        "?api_key=ZSTYF0GBSSF0l3Ou6DTPE"
-    )
+  componentDidUpdate() {
+    const media = this.props.posts.map((post) => post.mediaId)
+
+    if (media) {
+      this.props.getMediaData(
+        "https://api.slstice.com/mock/medias/" +
+          media.reverse().pop() +
+          "?api_key=ZSTYF0GBSSF0l3Ou6DTPE"
+      )
+    }
   }
 
   // Render the component.
   render() {
-    return <img src={this.props.media.urls.full} />
+    return <img src={this.props.media.urls.raw} />
   }
 }
 

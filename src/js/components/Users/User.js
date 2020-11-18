@@ -10,12 +10,16 @@ import "./User.scss"
  */
 class User extends Component {
   // Make API call.
-  componentDidMount() {
-    this.props.getUsersData(
-      "https://api.slstice.com/mock/users/" +
-        this.props.posts.map((post) => post.user.username) +
-        "?api_key=ZSTYF0GBSSF0l3Ou6DTPE"
-    )
+  componentDidUpdate() {
+    const user = this.props.posts.map((post) => post.user.username)
+
+    if (user) {
+      this.props.getUsersData(
+        "https://api.slstice.com/mock/users/" +
+          user.reverse().pop() +
+          "?api_key=ZSTYF0GBSSF0l3Ou6DTPE"
+      )
+    }
   }
 
   // Render the component.
