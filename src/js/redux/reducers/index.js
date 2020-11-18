@@ -1,4 +1,17 @@
-// Initial app state.
+/**
+ * @typedef ImagesApp
+ */
+
+/**
+ * Initial app state. 
+ * 
+ * @typedef State
+ * @property {ImagesApp[]} posts 
+ * @property {Object} user
+ * @property {Object} media  
+ */
+
+ /** @type {State} */
 const initialState = {
   posts: [
     {

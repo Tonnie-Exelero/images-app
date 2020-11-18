@@ -3,6 +3,11 @@ import { connect } from "react-redux"
 import { getUsersData } from "../../redux/actions"
 import "./User.scss"
 
+/**
+ * Class that fetches and displays users. 
+ * 
+ * @class
+ */
 class User extends Component {
   // Make API call.
   componentDidMount() {

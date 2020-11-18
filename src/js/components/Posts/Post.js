@@ -3,6 +3,11 @@ import { connect } from "react-redux"
 import { getPostsData } from "../../redux/actions"
 import "./Post.scss"
 
+/**
+ * Class that fetches and displays posts. 
+ * 
+ * @class
+ */
 class Post extends Component {
   // Make API call.
   componentDidMount() {
