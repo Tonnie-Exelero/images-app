@@ -12,7 +12,7 @@ class Post extends Component {
   // Make API call.
   componentDidMount() {
     this.props.getPostsData(
-      "https://api.slstice.com/mock/posts?api_key=ZSTYF0GBSSF0l3Ou6DTPE"
+      "https://api.slstice.com/mock/posts?offset=0&limit=10&api_key=ZSTYF0GBSSF0l3Ou6DTPE"
     )
   }
 

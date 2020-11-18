@@ -3,51 +3,9 @@ import rootReducer from "./index"
 describe("Images reducer", () => {
   it("should return the initial state", () => {
     expect(rootReducer(undefined, {})).toEqual({
-      posts: [
-        {
-          id: "mQMp4Ie1Bh0",
-          created: "2019-07-30T03:53:18-04:00",
-          mediaId: "string",
-          user: {
-            id: "JmV2XH2xWtY",
-            username: "samuelsngx",
-          },
-          likes: 0,
-          title: "string",
-          description: "string",
-        },
-      ],
-      user: {
-        id: "JmV2XH2xWtY",
-        username: "samuelsngx",
-        first_name: "string",
-        last_name: "string",
-        profile_images: {
-          small: "string",
-          medium: "string",
-          large: "string",
-        },
-      },
-      media: {
-        id: "string",
-        type: "image",
-        statistics: {
-          views: 0,
-          downloads: 0,
-          likes: 0,
-          created: 0,
-        },
-        urls: {
-          raw: "string",
-          full: "string",
-          regular: "string",
-          small: "string",
-        },
-        owner: {
-          id: "JmV2XH2xWtY",
-          username: "samuelsngx",
-        },
-      },
+      posts: [],
+      user: {},
+      media: {},
     })
   })
 
@@ -59,16 +17,17 @@ describe("Images reducer", () => {
     ).toEqual({
       posts: [
         {
-          id: "mQMp4Ie1Bh0",
-          created: "2019-07-30T03:53:18-04:00",
-          mediaId: "string",
+          id: "fuhU4o7jrE4",
+          created: "2020-10-12T14:00:20-04:00",
+          mediaId:
+            "MTkzNGRiMGZiYjhlZjk2YTE5ZTQ1ZjAwMDczYzdlMDAyMWE0NWE2NTo0NTNiMDc0NzdiZGUzNmEyOjA3TFZldy9KaXVFTWFpYWRLckNyaHc9PQ==",
           user: {
-            id: "JmV2XH2xWtY",
-            username: "samuelsngx",
+            id: "eySMK9KwmJU",
+            username: "samsungmemory",
           },
-          likes: 0,
-          title: "string",
-          description: "string",
+          likes: 34,
+          title: null,
+          description: null,
         },
       ],
       user: {},
@@ -81,16 +40,17 @@ describe("Images reducer", () => {
           {
             posts: [
               {
-                id: "mQMp4Ie1Bh0",
-                created: "2019-07-30T03:53:18-04:00",
-                mediaId: "string",
+                id: "fuhU4o7jrE4",
+                created: "2020-10-12T14:00:20-04:00",
+                mediaId:
+                  "MTkzNGRiMGZiYjhlZjk2YTE5ZTQ1ZjAwMDczYzdlMDAyMWE0NWE2NTo0NTNiMDc0NzdiZGUzNmEyOjA3TFZldy9KaXVFTWFpYWRLckNyaHc9PQ==",
                 user: {
-                  id: "JmV2XH2xWtY",
-                  username: "samuelsngx",
+                  id: "eySMK9KwmJU",
+                  username: "samsungmemory",
                 },
-                likes: 0,
-                title: "string",
-                description: "string",
+                likes: 34,
+                title: null,
+                description: null,
               },
             ],
             user: {},
@@ -105,27 +65,31 @@ describe("Images reducer", () => {
       {
         posts: [
           {
-            id: "mQMp4Ie1Bh0",
-            created: "2019-07-30T03:53:18-04:00",
-            mediaId: "string",
+            id: "fuhU4o7jrE4",
+            created: "2020-10-12T14:00:20-04:00",
+            mediaId:
+              "MTkzNGRiMGZiYjhlZjk2YTE5ZTQ1ZjAwMDczYzdlMDAyMWE0NWE2NTo0NTNiMDc0NzdiZGUzNmEyOjA3TFZldy9KaXVFTWFpYWRLckNyaHc9PQ==",
             user: {
-              id: "JmV2XH2xWtY",
-              username: "samuelsngx",
+              id: "eySMK9KwmJU",
+              username: "samsungmemory",
             },
-            likes: 0,
-            title: "string",
-            description: "string",
+            likes: 34,
+            title: null,
+            description: null,
           },
         ],
         user: {
-          id: "JmV2XH2xWtY",
-          username: "samuelsngx",
-          first_name: "string",
-          last_name: "string",
+          id: "eySMK9KwmJU",
+          username: "samsungmemory",
+          first_name: "Samsung",
+          last_name: "Memory",
           profile_images: {
-            small: "string",
-            medium: "string",
-            large: "string",
+            small:
+              "https://images.unsplash.com/profile-1602741027167-c4d707fcfc85image?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&cs=tinysrgb&fit=crop&h=32&w=32",
+            medium:
+              "https://images.unsplash.com/profile-1602741027167-c4d707fcfc85image?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&cs=tinysrgb&fit=crop&h=64&w=64",
+            large:
+              "https://images.unsplash.com/profile-1602741027167-c4d707fcfc85image?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&cs=tinysrgb&fit=crop&h=128&w=128",
           },
         },
         media: {},
@@ -133,16 +97,17 @@ describe("Images reducer", () => {
       {
         posts: [
           {
-            id: "mQMp4Ie1Bh0",
-            created: "2019-07-30T03:53:18-04:00",
-            mediaId: "string",
+            id: "fuhU4o7jrE4",
+            created: "2020-10-12T14:00:20-04:00",
+            mediaId:
+              "MTkzNGRiMGZiYjhlZjk2YTE5ZTQ1ZjAwMDczYzdlMDAyMWE0NWE2NTo0NTNiMDc0NzdiZGUzNmEyOjA3TFZldy9KaXVFTWFpYWRLckNyaHc9PQ==",
             user: {
-              id: "JmV2XH2xWtY",
-              username: "samuelsngx",
+              id: "eySMK9KwmJU",
+              username: "samsungmemory",
             },
-            likes: 0,
-            title: "string",
-            description: "string",
+            likes: 34,
+            title: null,
+            description: null,
           },
         ],
         user: {},
@@ -157,27 +122,31 @@ describe("Images reducer", () => {
         {
           posts: [
             {
-              id: "mQMp4Ie1Bh0",
-              created: "2019-07-30T03:53:18-04:00",
-              mediaId: "string",
+              id: "fuhU4o7jrE4",
+              created: "2020-10-12T14:00:20-04:00",
+              mediaId:
+                "MTkzNGRiMGZiYjhlZjk2YTE5ZTQ1ZjAwMDczYzdlMDAyMWE0NWE2NTo0NTNiMDc0NzdiZGUzNmEyOjA3TFZldy9KaXVFTWFpYWRLckNyaHc9PQ==",
               user: {
-                id: "JmV2XH2xWtY",
-                username: "samuelsngx",
+                id: "eySMK9KwmJU",
+                username: "samsungmemory",
               },
-              likes: 0,
-              title: "string",
-              description: "string",
+              likes: 34,
+              title: null,
+              description: null,
             },
           ],
           user: {
-            id: "JmV2XH2xWtY",
-            username: "samuelsngx",
-            first_name: "string",
-            last_name: "string",
+            id: "eySMK9KwmJU",
+            username: "samsungmemory",
+            first_name: "Samsung",
+            last_name: "Memory",
             profile_images: {
-              small: "string",
-              medium: "string",
-              large: "string",
+              small:
+                "https://images.unsplash.com/profile-1602741027167-c4d707fcfc85image?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&cs=tinysrgb&fit=crop&h=32&w=32",
+              medium:
+                "https://images.unsplash.com/profile-1602741027167-c4d707fcfc85image?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&cs=tinysrgb&fit=crop&h=64&w=64",
+              large:
+                "https://images.unsplash.com/profile-1602741027167-c4d707fcfc85image?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&cs=tinysrgb&fit=crop&h=128&w=128",
             },
           },
           media: {},
@@ -191,74 +160,89 @@ describe("Images reducer", () => {
     {
       posts: [
         {
-          id: "mQMp4Ie1Bh0",
-          created: "2019-07-30T03:53:18-04:00",
-          mediaId: "string",
+          id: "fuhU4o7jrE4",
+          created: "2020-10-12T14:00:20-04:00",
+          mediaId:
+            "MTkzNGRiMGZiYjhlZjk2YTE5ZTQ1ZjAwMDczYzdlMDAyMWE0NWE2NTo0NTNiMDc0NzdiZGUzNmEyOjA3TFZldy9KaXVFTWFpYWRLckNyaHc9PQ==",
           user: {
-            id: "JmV2XH2xWtY",
-            username: "samuelsngx",
+            id: "eySMK9KwmJU",
+            username: "samsungmemory",
           },
-          likes: 0,
-          title: "string",
-          description: "string",
+          likes: 34,
+          title: null,
+          description: null,
         },
       ],
       user: {
-        id: "JmV2XH2xWtY",
-        username: "samuelsngx",
-        first_name: "string",
-        last_name: "string",
+        id: "eySMK9KwmJU",
+        username: "samsungmemory",
+        first_name: "Samsung",
+        last_name: "Memory",
         profile_images: {
-          small: "string",
-          medium: "string",
-          large: "string",
+          small:
+            "https://images.unsplash.com/profile-1602741027167-c4d707fcfc85image?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&cs=tinysrgb&fit=crop&h=32&w=32",
+          medium:
+            "https://images.unsplash.com/profile-1602741027167-c4d707fcfc85image?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&cs=tinysrgb&fit=crop&h=64&w=64",
+          large:
+            "https://images.unsplash.com/profile-1602741027167-c4d707fcfc85image?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&cs=tinysrgb&fit=crop&h=128&w=128",
         },
       },
       media: {
-        id: "string",
+        id:
+          "MDM3NjRmZmNiYmRmNjYxNmQxMTIzNjhhODgxZWI4ZDNkZTMwN2QwYzo4NzBhNDQyMTljNTE3MzcxOnV4S2dmV1JXa1Z5R3pCZ1hEUHFmdFE9PQ==",
         type: "image",
         statistics: {
-          views: 0,
-          downloads: 0,
-          likes: 0,
-          created: 0,
+          views: 1023916,
+          downloads: 5372,
+          likes: 34,
+          created: 1602525620,
         },
         urls: {
-          raw: "string",
-          full: "string",
-          regular: "string",
-          small: "string",
+          raw:
+            "https://images.unsplash.com/photo-1602524816765-67313fa3ef54?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjE3NjMyfQ",
+          full:
+            "https://images.unsplash.com/photo-1602524816765-67313fa3ef54?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE3NjMyfQ",
+          regular:
+            "https://images.unsplash.com/photo-1602524816765-67313fa3ef54?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjE3NjMyfQ",
+          small:
+            "https://images.unsplash.com/photo-1602524816765-67313fa3ef54?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE3NjMyfQ",
+          thumb:
+            "https://images.unsplash.com/photo-1602524816765-67313fa3ef54?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE3NjMyfQ",
         },
         owner: {
-          id: "JmV2XH2xWtY",
-          username: "samuelsngx",
+          id: "eySMK9KwmJU",
+          username: "samsungmemory",
         },
       },
     },
     {
       posts: [
         {
-          id: "mQMp4Ie1Bh0",
-          created: "2019-07-30T03:53:18-04:00",
-          mediaId: "string",
+          id: "fuhU4o7jrE4",
+          created: "2020-10-12T14:00:20-04:00",
+          mediaId:
+            "MTkzNGRiMGZiYjhlZjk2YTE5ZTQ1ZjAwMDczYzdlMDAyMWE0NWE2NTo0NTNiMDc0NzdiZGUzNmEyOjA3TFZldy9KaXVFTWFpYWRLckNyaHc9PQ==",
           user: {
-            id: "JmV2XH2xWtY",
-            username: "samuelsngx",
+            id: "eySMK9KwmJU",
+            username: "samsungmemory",
           },
-          likes: 0,
-          title: "string",
-          description: "string",
+          likes: 34,
+          title: null,
+          description: null,
         },
       ],
       user: {
-        id: "JmV2XH2xWtY",
-        username: "samuelsngx",
-        first_name: "string",
-        last_name: "string",
+        id: "eySMK9KwmJU",
+        username: "samsungmemory",
+        first_name: "Samsung",
+        last_name: "Memory",
         profile_images: {
-          small: "string",
-          medium: "string",
-          large: "string",
+          small:
+            "https://images.unsplash.com/profile-1602741027167-c4d707fcfc85image?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&cs=tinysrgb&fit=crop&h=32&w=32",
+          medium:
+            "https://images.unsplash.com/profile-1602741027167-c4d707fcfc85image?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&cs=tinysrgb&fit=crop&h=64&w=64",
+          large:
+            "https://images.unsplash.com/profile-1602741027167-c4d707fcfc85image?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&cs=tinysrgb&fit=crop&h=128&w=128",
         },
       },
       media: {},
@@ -266,16 +250,17 @@ describe("Images reducer", () => {
     {
       posts: [
         {
-          id: "mQMp4Ie1Bh0",
-          created: "2019-07-30T03:53:18-04:00",
-          mediaId: "string",
+          id: "fuhU4o7jrE4",
+          created: "2020-10-12T14:00:20-04:00",
+          mediaId:
+            "MTkzNGRiMGZiYjhlZjk2YTE5ZTQ1ZjAwMDczYzdlMDAyMWE0NWE2NTo0NTNiMDc0NzdiZGUzNmEyOjA3TFZldy9KaXVFTWFpYWRLckNyaHc9PQ==",
           user: {
-            id: "JmV2XH2xWtY",
-            username: "samuelsngx",
+            id: "eySMK9KwmJU",
+            username: "samsungmemory",
           },
-          likes: 0,
-          title: "string",
-          description: "string",
+          likes: 34,
+          title: null,
+          description: null,
         },
       ],
       user: {},
