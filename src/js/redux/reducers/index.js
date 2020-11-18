@@ -3,15 +3,15 @@
  */
 
 /**
- * Initial app state. 
- * 
+ * Initial app state.
+ *
  * @typedef State
- * @property {ImagesApp[]} posts 
+ * @property {ImagesApp[]} posts
  * @property {Object} user
- * @property {Object} media  
+ * @property {Object} media
  */
 
- /** @type {State} */
+/** @type {State} */
 const initialState = {
   posts: [
     {

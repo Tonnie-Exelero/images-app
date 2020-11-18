@@ -4,8 +4,8 @@ import { getMediaData } from "../../redux/actions"
 import "./Media.scss"
 
 /**
- * Class that fetches and displays media. 
- * 
+ * Class that fetches and displays media.
+ *
  * @class
  */
 class Media extends Component {

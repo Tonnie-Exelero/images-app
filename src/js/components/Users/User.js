@@ -4,8 +4,8 @@ import { getUsersData } from "../../redux/actions"
 import "./User.scss"
 
 /**
- * Class that fetches and displays users. 
- * 
+ * Class that fetches and displays users.
+ *
  * @class
  */
 class User extends Component {

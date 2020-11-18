@@ -1,6 +1,6 @@
 /**
  * Action to pass Posts data API endpoint to saga.
- * 
+ *
  * @param {string} url API endpoint to be called.
  * @returns {Object} Return action.type and action.payload.
  */
@@ -10,7 +10,7 @@ export function getPostsData(url) {
 
 /**
  * Action to pass Users data API endpoint to saga.
- * 
+ *
  * @param {string} url API endpoint to be called.
  * @returns {Object} Return action.type and action.payload.
  */
@@ -20,7 +20,7 @@ export function getUsersData(url) {
 
 /**
  * Action to pass Media data API endpoint to saga.
- * 
+ *
  * @param {string} url API endpoint to be called.
  * @returns {Object} Return action.type and action.payload.
  */

@@ -3,7 +3,7 @@ import { takeEvery, call, put } from "redux-saga/effects"
 
 /**
  * Function that yields media.
- * 
+ *
  * @yields {Object} Media data requested.
  */
 export function* mediaSaga() {
@@ -12,7 +12,7 @@ export function* mediaSaga() {
 
 /**
  * Function to request media from API.
- * 
+ *
  * @param {Object} action Action with url payload.
  */
 function* workerSaga(action) {
@@ -26,10 +26,12 @@ function* workerSaga(action) {
 
 /**
  * Function that fetches media data.
- * 
+ *
  * @param {string} url API endpoint to be called.
  * @returns {Object} Media data.
  */
 function getMediaData(url) {
-  return fetch(url).then((response) => response.json())
+  return fetch(url)
+    .then((response) => response.json())
+    .catch((error) => console.error(error))
 }
