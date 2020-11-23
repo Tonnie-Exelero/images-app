@@ -10,13 +10,13 @@ import "./User.scss"
  */
 class User extends Component {
   // Make API call.
-  componentDidUpdate() {
-    const user = this.props.posts.map((post) => post.user.username)
+  componentDidMount() {
+    const user = this.props.username
 
     if (user) {
       this.props.getUsersData(
         "https://api.slstice.com/mock/users/" +
-          user.reverse().pop() +
+          user +
           "?api_key=ZSTYF0GBSSF0l3Ou6DTPE"
       )
     }
@@ -24,14 +24,18 @@ class User extends Component {
 
   // Render the component.
   render() {
+    if (this.props.state.error) {
+      return <h1>Something went wrong.</h1>
+    }
+
     return (
       <div className="c-users--user">
         <div className="c-users--name">
-          {this.props.user.first_name} {this.props.user.last_name}
+          {this.props.state.user.first_name} {this.props.state.user.last_name}
         </div>
         <div className="c-users--avatar">
           <img
-            src={this.props.user.profile_images.small}
+            src={this.props.state.user.profile_images.small}
             width="24"
             height="24"
             alt="Avatar"
@@ -45,8 +49,7 @@ class User extends Component {
 // Function to connect to the state.
 function mapStateToProps(state) {
   return {
-    posts: state.posts.slice(0, 10),
-    user: state.user,
+    state,
   }
 }
 

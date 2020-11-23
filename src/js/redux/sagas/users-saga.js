@@ -19,8 +19,8 @@ function* workerSaga(action) {
   try {
     const payload = yield call(getUsersData, action.payload.url)
     yield put({ type: "USERS_LOADED", payload: payload.response.user })
-  } catch (e) {
-    yield put({ type: "API_ERRORED", payload: e })
+  } catch (error) {
+    yield put({ type: "API_ERRORED", payload: error })
   }
 }
 

@@ -10,13 +10,13 @@ import "./Media.scss"
  */
 class Media extends Component {
   // Make API call.
-  componentDidUpdate() {
-    const media = this.props.posts.map((post) => post.mediaId)
+  componentDidMount() {
+    const media = this.props.mediaId
 
     if (media) {
       this.props.getMediaData(
         "https://api.slstice.com/mock/medias/" +
-          media.reverse().pop() +
+          media +
           "?api_key=ZSTYF0GBSSF0l3Ou6DTPE"
       )
     }
@@ -24,15 +24,17 @@ class Media extends Component {
 
   // Render the component.
   render() {
-    return <img src={this.props.media.urls.raw} />
+    if (this.props.state.error) {
+      return <h1>Something went wrong.</h1>
+    }
+    return <img src={this.props.state.media.urls.raw} />
   }
 }
 
 // Function to connect to the state.
 function mapStateToProps(state) {
   return {
-    posts: state.posts.slice(0, 10),
-    media: state.media,
+    state,
   }
 }
 

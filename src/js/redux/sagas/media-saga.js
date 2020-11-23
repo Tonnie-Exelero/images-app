@@ -19,8 +19,8 @@ function* workerSaga(action) {
   try {
     const payload = yield call(getMediaData, action.payload.url)
     yield put({ type: "MEDIA_LOADED", payload: payload.response.media })
-  } catch (e) {
-    yield put({ type: "API_ERRORED", payload: e })
+  } catch (error) {
+    yield put({ type: "API_ERRORED", payload: error })
   }
 }
 
