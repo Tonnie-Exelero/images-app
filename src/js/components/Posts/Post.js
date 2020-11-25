@@ -1,69 +1,67 @@
-import React, { Component } from "react"
-import { connect } from "react-redux"
-import { getPostsData } from "../../redux/actions"
-import Image from "../Media/Media"
+import React, { Fragment, useEffect } from "react"
+import { useDispatch, useSelector } from "react-redux"
+import { getPosts } from "../../services/posts"
+import { setPosts } from "../../redux/actions"
+import Media from "../Media/Media"
 import User from "../Users/User"
 import "./Post.scss"
 
-/**
- * Class that fetches and displays posts.
- *
- * @class
- */
-class Post extends Component {
-  // Make API call.
-  componentDidMount() {
-    this.props.getPostsData(
-      "https://api.slstice.com/mock/posts?offset=0&limit=15&api_key=ZSTYF0GBSSF0l3Ou6DTPE"
-    )
-  }
+const Posts = (props) => {
+  const posts = useSelector((state) => state.posts)
+  const dispatch = useDispatch()
 
-  // Render the component.
-  render() {
-    if (this.props.state.error) {
-      return <h1>Something went wrong.</h1>
-    }
+  useEffect(() => {
+    let mounted = true
 
-    return this.props.state.posts.map((post) => (
-      <div key={post.id} className="c-posts--content">
-        <div className="c-posts--image">
-          {/* <Image mediaId={post.mediaId} /> */}
-        </div>
-        <div className="c-posts--post-content">
-          <div className="c-posts--user">
-            {/* <User username={post.user.username} /> */}
-          </div>
-          <div className="c-posts--post">
-            <div className="c-posts--title">{post.title || "No post title"}</div>
-            <div className="c-posts--description">
-              {post.description || "No description"}
+    getPosts().then((items) => {
+      if (mounted) {
+        dispatch(setPosts(items.response.posts))
+      }
+    })
+
+    return () => (mounted = false)
+  }, [dispatch])
+
+  return (
+    <Fragment>
+      {posts ? (
+        posts.map((post) => (
+          <div key={post.id} className="c-posts--content">
+            <div className="c-posts--image">
+              <Media mediaId={post.mediaId} />
+            </div>
+            <div className="c-posts--post-content">
+              <User username={post.user.username} />
+              <div className="c-posts--post">
+                <div className="c-posts--title">{post.title || "No post title"}</div>
+                <div className="c-posts--description">
+                  {post.description || "No description"}
+                </div>
+              </div>
+              <div className="c-posts--meta">
+                <div className="c-posts--likes">
+                  <img
+                    src="http://localhost:3000/images/facebook.png"
+                    width="16"
+                    height="16"
+                    alt="facebook"
+                  />
+                  <div className="c-posts--likes-count">
+                    {" " + post.likes} likes
+                  </div>
+                </div>
+                <div className="c-posts--date">
+                  {new Date(post.created).toDateString()}
+                </div>
+              </div>
             </div>
           </div>
-          <div className="c-posts--meta">
-            <div className="c-posts--likes">
-              <img
-                src="http://localhost:3000/images/facebook.png"
-                width="16"
-                height="16"
-                alt="facebook"
-              />
-              <div className="c-posts--likes-count">{" " + post.likes} likes</div>
-            </div>
-            <div className="c-posts--date">
-              {new Date(post.created).toDateString()}
-            </div>
-          </div>
-        </div>
-      </div>
-    ))
-  }
+        ))
+      ) : (
+        <div>No posts to display</div>
+      )}
+    </Fragment>
+  )
 }
 
-// Function to connect to the state.
-function mapStateToProps(state) {
-  return {
-    state,
-  }
-}
-
-export default connect(mapStateToProps, { getPostsData })(Post)
+export default Posts

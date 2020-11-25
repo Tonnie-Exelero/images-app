@@ -1,6 +1,4 @@
-/* Breakpoints */
-$desktop: 600px;
-
+/* Global styling */
 * {
     box-sizing: border-box;
 }
@@ -8,34 +6,4 @@ $desktop: 600px;
 body {
     margin: 0;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-}
-
-#container {
-    display: flex;
-    flex-flow: row wrap;
-    background-color: #AAA;
-    border: solid 1px grey;
-
-
-    .c-media--image {
-        flex-basis: 100%;
-        border-right: solid 1px grey;
-    }
-
-    .c-posts--content {
-        display: flex;
-        flex-direction: column;
-        flex-basis: 100%;
-        padding: 1em;
-    }
-
-    @media (min-width: $desktop) {
-        .c-media--image {
-            flex-basis: 60%;
-        }
-
-        .c-posts--content {
-            flex-basis: 40%;
-        }
-    }
 }

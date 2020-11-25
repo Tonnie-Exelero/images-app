@@ -1,10 +1,10 @@
-import React, { Component, Fragment } from "react"
-import Post from "./components/Posts/Post"
+import React, { Component } from "react"
+import Posts from "./components/Posts/Post"
 import "./App.scss"
 
 class App extends Component {
   render() {
-    return <Post />
+    return <Posts />
   }
 }
 

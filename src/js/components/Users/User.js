@@ -1,56 +1,47 @@
-import React, { Component } from "react"
-import { connect } from "react-redux"
-import { getUsersData } from "../../redux/actions"
+import React, { Fragment, useEffect } from "react"
+import { useDispatch, useSelector } from "react-redux"
+import { getUser } from "../../services/user"
+import { setUser } from "../../redux/actions"
 import "./User.scss"
 
-/**
- * Class that fetches and displays users.
- *
- * @class
- */
-class User extends Component {
-  // Make API call.
-  componentDidMount() {
-    const user = this.props.username
+const User = (props) => {
+  const { username } = props
+  const user = useSelector((state) => state.user)
+  const dispatch = useDispatch()
 
-    if (user) {
-      this.props.getUsersData(
-        "https://api.slstice.com/mock/users/" +
-          user +
-          "?api_key=ZSTYF0GBSSF0l3Ou6DTPE"
-      )
-    }
-  }
+  useEffect(() => {
+    let mounted = true
 
-  // Render the component.
-  render() {
-    if (this.props.state.error) {
-      return <h1>Something went wrong.</h1>
-    }
+    getUser(username).then((data) => {
+      if (mounted) {
+        dispatch(setUser(data.response.user))
+      }
+    })
 
-    return (
-      <div className="c-users--user">
-        <div className="c-users--name">
-          {this.props.state.user.first_name} {this.props.state.user.last_name}
+    return () => (mounted = false)
+  }, [username, dispatch])
+
+  return (
+    <Fragment>
+      {user ? (
+        <div className="c-users--user">
+          <div className="c-users--name">
+            {user.first_name} {user.last_name}
+          </div>
+          <div className="c-users--avatar">
+            <img
+              src={user.profile_images.small}
+              width="24"
+              height="24"
+              alt="Avatar"
+            />
+          </div>
         </div>
-        <div className="c-users--avatar">
-          <img
-            src={this.props.state.user.profile_images.small}
-            width="24"
-            height="24"
-            alt="Avatar"
-          />
-        </div>
-      </div>
-    )
-  }
+      ) : (
+        <div>No user to display</div>
+      )}
+    </Fragment>
+  )
 }
 
-// Function to connect to the state.
-function mapStateToProps(state) {
-  return {
-    state,
-  }
-}
-
-export default connect(mapStateToProps, { getUsersData })(User)
+export default User

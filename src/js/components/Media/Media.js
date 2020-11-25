@@ -1,41 +1,29 @@
-import React, { Component } from "react"
-import { connect } from "react-redux"
-import { getMediaData } from "../../redux/actions"
+import React, { Fragment, useEffect } from "react"
+import { useDispatch, useSelector } from "react-redux"
+import { getMedia } from "../../services/media"
+import { setMedia } from "../../redux/actions"
 import "./Media.scss"
 
-/**
- * Class that fetches and displays media.
- *
- * @class
- */
-class Media extends Component {
-  // Make API call.
-  componentDidMount() {
-    const media = this.props.mediaId
+const Media = (props) => {
+  const media = useSelector((state) => state.media)
+  const { mediaId } = props
+  const dispatch = useDispatch()
 
-    if (media) {
-      this.props.getMediaData(
-        "https://api.slstice.com/mock/medias/" +
-          media +
-          "?api_key=ZSTYF0GBSSF0l3Ou6DTPE"
-      )
-    }
-  }
+  useEffect(() => {
+    let mounted = true
 
-  // Render the component.
-  render() {
-    if (this.props.state.error) {
-      return <h1>Something went wrong.</h1>
-    }
-    return <img src={this.props.state.media.urls.raw} />
-  }
+    getMedia(mediaId).then((data) => {
+      if (mounted) {
+        dispatch(setMedia(data.response.media))
+      }
+    })
+
+    return () => (mounted = false)
+  }, [mediaId, dispatch])
+
+  return (
+    <Fragment>{media ? <img src={media.urls.raw} /> : <div>No media to display</div>}</Fragment>
+  )
 }
 
-// Function to connect to the state.
-function mapStateToProps(state) {
-  return {
-    state,
-  }
-}
-
-export default connect(mapStateToProps, { getMediaData })(Media)
+export default Media
