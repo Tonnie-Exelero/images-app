@@ -1,13 +1,20 @@
-import React, { Fragment, useEffect } from "react"
+import React, { Fragment, useEffect, useMemo } from "react"
 import { useDispatch, useSelector } from "react-redux"
+import styled from "styled-components"
 import { getMedia } from "../../services/media"
 import { setMedia } from "../../redux/actions"
-import "./Media.scss"
+import { selectMediaById } from "./MediaSlice"
+
+const Image = styled.img`
+  max-width: 100%;
+  max-height: 100%;
+`
 
 const Media = (props) => {
-  const media = useSelector((state) => state.media)
   const { mediaId } = props
   const dispatch = useDispatch()
+  const selectMedia = useMemo(() => selectMediaById(mediaId), [mediaId])
+  const media = useSelector(selectMedia)
 
   useEffect(() => {
     let mounted = true
@@ -22,7 +29,9 @@ const Media = (props) => {
   }, [mediaId, dispatch])
 
   return (
-    <Fragment>{media ? <img src={media.urls.raw} /> : <div>No media to display</div>}</Fragment>
+    <Fragment>
+      {media ? <Image src={media.urls.raw} /> : <div>No image to display</div>}
+    </Fragment>
   )
 }
 

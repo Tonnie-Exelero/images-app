@@ -7,37 +7,37 @@
  *
  * @typedef State
  * @property {ImagesApp[]} posts
- * @property {Object} user
+ * @property {Object} users
  * @property {Object} media
  */
 
 /** @type {State} */
 const initialState = {
   posts: [],
-  user: {},
-  media: {},
+  users: [],
+  media: [],
 }
 
-export default function rootReducer(state = { initialState }, action) {
+export default function rootReducer(state = initialState, action) {
   switch (action.type) {
     case "POSTS_LOADED": {
       return {
         ...state,
-        posts: action.payload,
+        posts: state.posts.concat(action.payload),
       }
     }
 
     case "MEDIA_LOADED": {
       return {
         ...state,
-        media: action.payload, ...state.media,
+        media: state.media.concat(action.payload),
       }
     }
 
-    case "USER_LOADED": {
+    case "USERS_LOADED": {
       return {
         ...state,
-        user: action.payload,
+        users: state.users.concat(action.payload),
       }
     }
 

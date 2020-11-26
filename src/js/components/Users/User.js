@@ -1,13 +1,28 @@
-import React, { Fragment, useEffect } from "react"
+import React, { Fragment, useEffect, useMemo } from "react"
 import { useDispatch, useSelector } from "react-redux"
+import styled from "styled-components"
 import { getUser } from "../../services/user"
 import { setUser } from "../../redux/actions"
-import "./User.scss"
+import { selectUserByUsername } from "./UserSlice"
+
+const Container = styled.div`
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  order: 1;
+`
+
+const Username = styled.div`
+  margin: auto 0.6em;
+  opacity: 0.6;
+  font-size: 0.8rem;
+`
 
 const User = (props) => {
   const { username } = props
-  const user = useSelector((state) => state.user)
   const dispatch = useDispatch()
+  const selectUser = useMemo(() => selectUserByUsername(username), [username])
+  const user = useSelector(selectUser)
 
   useEffect(() => {
     let mounted = true
@@ -24,19 +39,12 @@ const User = (props) => {
   return (
     <Fragment>
       {user ? (
-        <div className="c-users--user">
-          <div className="c-users--name">
+        <Container>
+          <Username>
             {user.first_name} {user.last_name}
-          </div>
-          <div className="c-users--avatar">
-            <img
-              src={user.profile_images.small}
-              width="24"
-              height="24"
-              alt="Avatar"
-            />
-          </div>
-        </div>
+          </Username>
+          <img src={user.profile_images.small} width="24" height="24" alt="Avatar" />
+        </Container>
       ) : (
         <div>No user to display</div>
       )}

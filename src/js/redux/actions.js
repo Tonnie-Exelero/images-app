@@ -1,8 +1,8 @@
 export const setPosts = (posts) => {
-    return {
-        type: "POSTS_LOADED",
-        payload: posts
-    }
+  return {
+    type: "POSTS_LOADED",
+    payload: posts,
+  }
 }
 
 export const setMedia = (media) => {
@@ -14,7 +14,7 @@ export const setMedia = (media) => {
 
 export const setUser = (user) => {
   return {
-    type: "USER_LOADED",
+    type: "USERS_LOADED",
     payload: user,
   }
 }
