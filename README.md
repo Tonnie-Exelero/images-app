@@ -1,6 +1,6 @@
-# images-app
+# images-app (WIP)
 
-This is a sample app that displays images and image creator information.
+This is a React-redux app that displays images and image creator information.
 
 ## Installation
 
